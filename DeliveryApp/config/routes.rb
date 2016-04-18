@@ -1,9 +1,24 @@
 Rails.application.routes.draw do
+
+  devise_for :usuarios,  controllers: { sessions: "usuarios/sessions", registrations: "usuarios/registrations", 
+  passwords: "usuarios/passwords"  }, :path_names => {:sign_in => 'entrar', :sign_up => 'registrar', :sign_out => 'salir'}
+  as :usuario do
+    get 'sign_in' => 'usuarios/sessions#new', :as => :new_usuario_session_path
+    get 'sign_up' => 'usuarios/registrations#create', :as => :usuario_registration_path
+    delete 'sign_out' => 'usuarios/sessions#destroy', :as => :destroy_usuario_session_path
+    get 'new' => 'usuarios/sessions#destroy', :as => :new_usuario_password_path
+    
+  end
+
+
+  resources :roles
+  resources :usuarios
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'roles#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

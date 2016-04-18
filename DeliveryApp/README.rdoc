@@ -1,28 +1,15 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Se creo la funcionalidad Roles...
+Se creo la funcionalidad de usuario...
+Se instalo Devise para la gestion de login de usuarios...
+Se aplico el Framework Css AdminLTE...
 
-Things you may want to cover:
+Para el primer uso ejecutar
+rake db:create  //para crear la base de datos
+rake db:migrate //para crear las migraciones
+rake db:seed //para crear el usuario Administrador y su rol
 
-* Ruby version
+Iniciar sesion con:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+delivery@gmail.com	pass: 111111

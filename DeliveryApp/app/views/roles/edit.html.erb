@@ -1,0 +1,13 @@
+<div class="box-header">
+    <h1><i class="glyphicon glyphicon-list"></i>
+        Editar Rol <%= link_to glyph(:plus_sign)+' Nuevo Rol', new_rol_path, class: 'btn btn-primary btn-sm pull-right' %>
+    </h1>
+</div>
+<div class="box-body pad table-responsive">
+
+
+<%= render 'form' %>
+
+<%= link_to glyph(:arrow_left) + ' Volver', roles_path %> |
+<%= link_to glyph(:eye_open) + ' Mostrar', @rol %>
+</div>
