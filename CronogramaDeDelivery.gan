@@ -1,13 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2016-04-19" view-index="0" gantt-divider-location="427" resource-divider-location="300" version="2.7.2" locale="es_PY">
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2016-03-21" view-index="0" gantt-divider-location="300" resource-divider-location="300" version="2.7" locale="es">
     <description/>
-    <view zooming-state="default:2" id="gantt-chart">
-        <field id="tpd3" name="Nombre" width="69" order="0"/>
-        <field id="tpd4" name="Fecha de inicio" width="14" order="1"/>
-        <field id="tpd5" name="Fecha de fin" width="16" order="2"/>
+    <view zooming-state="default:7" id="gantt-chart">
+        <field id="tpd3" name="Nombre" width="51" order="0"/>
+        <field id="tpd4" name="Fecha de inicio" width="24" order="1"/>
+        <field id="tpd5" name="Fecha de fin" width="23" order="2"/>
+        <option id="taskLabelUp" value=""/>
+        <option id="taskLabelDown" value=""/>
+        <option id="taskLabelLeft" value="advancement"/>
+        <option id="taskLabelRight" value=""/>
+        <timeline><![CDATA[0]]></timeline>
+        <option id="color.recent"><![CDATA[#99ffff #99ffff #33ccff]]></option>
     </view>
     <view id="resource-table">
-        <field id="0" name="Nombre" width="56" order="0"/>
-        <field id="1" name="Función" width="43" order="1"/>
+        <field id="0" name="Nombre" width="50" order="0"/>
+        <field id="1" name="Función" width="49" order="1"/>
     </view>
     <!-- -->
     <calendars>
@@ -33,15 +39,49 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="0" name="Elaboracion de Requisitos" color="#8cb6ce" meeting="false" start="2016-04-19" duration="3" complete="0" expand="true">
-            <task id="6" name="Calendarizacion" color="#8cb6ce" meeting="false" start="2016-04-19" duration="1" complete="0" expand="true"/>
-            <task id="2" name="Estudio de viabilidad" color="#8cb6ce" meeting="false" start="2016-04-19" duration="2" complete="0" expand="true"/>
-            <task id="13" name="Modelo de Requerimientos del sistema" color="#8cb6ce" meeting="false" start="2016-04-19" duration="2" complete="0" expand="true"/>
-            <task id="14" name="Modelo de Requerimiento del negocio" color="#8cb6ce" meeting="false" start="2016-04-19" duration="3" complete="0" expand="true"/>
-            <task id="3" name="Estimacion de COCOMO" color="#8cb6ce" meeting="false" start="2016-04-20" duration="2" complete="0" priority="2" expand="true"/>
+        <task id="0" name="Definicion del Proyecto" color="#8cb6ce" meeting="false" start="2016-03-18" duration="5" complete="100" expand="true"/>
+        <task id="2" name="Herramientas a utilizar" color="#99ffff" meeting="false" start="2016-03-24" duration="5" complete="100" priority="2" expand="true">
+            <task id="3" name="Gestor de Versiones" color="#8cb6ce" meeting="false" start="2016-03-24" duration="2" complete="100" expand="true"/>
+            <task id="4" name="Leguaje de Programación" color="#8cb6ce" meeting="false" start="2016-03-25" duration="3" complete="100" expand="true"/>
+            <task id="5" name="Framework" color="#8cb6ce" meeting="false" start="2016-03-28" duration="3" complete="100" expand="true"/>
+            <task id="6" name="Motor de BD" color="#8cb6ce" meeting="false" start="2016-03-28" duration="3" complete="100" expand="true"/>
+            <task id="9" name="Gestor de Insidencias" color="#8cb6ce" meeting="false" start="2016-03-28" duration="3" complete="100" expand="true"/>
+            <task id="11" name="Editor" color="#8cb6ce" meeting="false" start="2016-03-28" duration="3" complete="100" expand="true"/>
+            <task id="12" name="Metodologia a Utilizar" color="#8cb6ce" meeting="false" start="2016-03-24" duration="5" complete="100" expand="true"/>
         </task>
+        <task id="14" name="Formulario de Requerimientos" color="#8cb6ce" meeting="false" start="2016-03-31" duration="6" complete="100" expand="true">
+            <task id="16" name="Introducción" color="#8cb6ce" meeting="false" start="2016-03-31" duration="2" complete="100" expand="true"/>
+            <task id="19" name="Descripción General" color="#8cb6ce" meeting="false" start="2016-04-04" duration="1" complete="100" expand="true"/>
+            <task id="21" name="Requisitos Específicos" color="#8cb6ce" meeting="false" start="2016-04-04" duration="4" complete="100" expand="true"/>
+        </task>
+        <task id="24" name="Modelado de Requerimiento del Negocio" color="#8cb6ce" meeting="false" start="2016-04-07" duration="10" complete="92" expand="true">
+            <task id="26" name="Descripcion Escrita del Sistema" color="#8cb6ce" meeting="false" start="2016-04-07" duration="10" complete="90" expand="true"/>
+            <task id="29" name="Tabla de Caso de Uso" color="#8cb6ce" meeting="false" start="2016-04-07" duration="10" complete="90" expand="true"/>
+            <task id="32" name="Grafico de caso de uso" color="#8cb6ce" meeting="false" start="2016-04-07" duration="6" complete="100" expand="true"/>
+        </task>
+        <task id="33" name="Modelado de Requerimiento del Sistema" color="#8cb6ce" meeting="false" start="2016-04-07" duration="10" complete="98" expand="true">
+            <task id="35" name="Descripción" color="#8cb6ce" meeting="false" start="2016-04-07" duration="10" complete="100" expand="true"/>
+            <task id="38" name="Tabla de Caso de Uso" color="#8cb6ce" meeting="false" start="2016-04-07" duration="10" complete="90" expand="true"/>
+            <task id="40" name="Grafico de caso de uso" color="#8cb6ce" meeting="false" start="2016-04-07" duration="10" complete="100" expand="true"/>
+        </task>
+        <task id="55" name="Estudio de Viabilidad" color="#8cb6ce" meeting="false" start="2016-04-07" duration="11" complete="89" expand="true"/>
+        <task id="41" name="Calendarizacion" color="#8cb6ce" meeting="false" start="2016-04-07" duration="11" complete="50" expand="true"/>
+        <task id="43" name="Estimacion" color="#8cb6ce" meeting="false" start="2016-04-07" duration="10" complete="100" expand="true"/>
+        <task id="45" name="Gestion de Riesgo" color="#8cb6ce" meeting="false" start="2016-04-21" duration="6" complete="0" expand="true"/>
+        <task id="48" name="Gestion de Configuracion" color="#8cb6ce" meeting="false" start="2016-04-21" duration="10" complete="0" expand="true"/>
+        <task id="51" name="Gestion de Calidad" color="#8cb6ce" meeting="false" start="2016-04-28" duration="5" complete="0" expand="true"/>
+        <task id="58" name="Desarrollo del sistema" color="#8cb6ce" meeting="false" start="2016-04-14" duration="57" complete="1" expand="true"/>
+        <task id="59" name="Documentacion" color="#8cb6ce" meeting="false" start="2016-04-14" duration="57" complete="0" expand="true"/>
+        <task id="60" name="Verificacion de los riego" color="#8cb6ce" meeting="false" start="2016-04-28" duration="47" complete="0" expand="true"/>
     </tasks>
-    <resources/>
+    <resources>
+        <resource id="0" name="Ricardo Maciel" function="SoftwareDevelopment:2" contacts="" phone="0973506058"/>
+        <resource id="1" name="Francisco Benitez" function="Default:0" contacts="" phone="0995375717"/>
+        <resource id="2" name="Melanie Florentin" function="Default:0" contacts="" phone="0985136549"/>
+        <resource id="3" name="Myriam Medina" function="Default:0" contacts="" phone="0985897478"/>
+        <resource id="4" name="Sebastian Kazlauzkas " function="Default:0" contacts="" phone="0994853942"/>
+        <resource id="5" name="Orlando Cardozo" function="Default:0" contacts="" phone="0995389937"/>
+    </resources>
     <allocations/>
     <vacations/>
     <taskdisplaycolumns>
@@ -50,16 +90,16 @@
         <displaycolumn property-id="tpd8" order="-1" width="75" visible="false"/>
         <displaycolumn property-id="tpd12" order="-1" width="75" visible="false"/>
         <displaycolumn property-id="tpd6" order="-1" width="75" visible="false"/>
-        <displaycolumn property-id="tpd3" order="0" width="294" visible="true"/>
-        <displaycolumn property-id="tpd4" order="1" width="60" visible="true"/>
-        <displaycolumn property-id="tpd5" order="2" width="69" visible="true"/>
         <displaycolumn property-id="tpd10" order="-1" width="75" visible="false"/>
         <displaycolumn property-id="tpd11" order="-1" width="75" visible="false"/>
         <displaycolumn property-id="tpd1" order="-1" width="75" visible="false"/>
         <displaycolumn property-id="tpd7" order="-1" width="75" visible="false"/>
-        <displaycolumn property-id="tpd13" order="-1" width="75" visible="false"/>
         <displaycolumn property-id="tpd0" order="-1" width="75" visible="false"/>
+        <displaycolumn property-id="tpd3" order="0" width="145" visible="true"/>
+        <displaycolumn property-id="tpd4" order="1" width="68" visible="true"/>
+        <displaycolumn property-id="tpd5" order="2" width="67" visible="true"/>
     </taskdisplaycolumns>
     <previous/>
     <roles roleset-name="Default"/>
+    <roles roleset-name="SoftwareDevelopment"/>
 </project>
