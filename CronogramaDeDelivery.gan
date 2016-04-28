@@ -1,19 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2016-03-21" view-index="0" gantt-divider-location="365" resource-divider-location="300" version="2.7" locale="es">
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2016-01-25" view-index="1" gantt-divider-location="440" resource-divider-location="300" version="2.7.2" locale="es">
     <description/>
     <view zooming-state="default:7" id="gantt-chart">
-        <field id="tpd3" name="Nombre" width="45" order="0"/>
-        <field id="tpd4" name="Fecha de inicio" width="27" order="1"/>
-        <field id="tpd5" name="Fecha de fin" width="27" order="2"/>
-        <option id="taskLabelUp" value=""/>
-        <option id="taskLabelDown" value=""/>
-        <option id="taskLabelLeft" value="advancement"/>
-        <option id="taskLabelRight" value=""/>
-        <timeline><![CDATA[0,41]]></timeline>
+        <field id="tpd3" name="Nombre" width="69" order="0"/>
+        <field id="tpd5" name="Fecha de fin" width="15" order="1"/>
+        <field id="tpd4" name="Fecha de inicio" width="14" order="2"/>
+        <timeline><![CDATA[41,0]]></timeline>
         <option id="color.recent"><![CDATA[#66ffff #66ffff #99ffff #66ffff #000099 #ff9900 #ff9900 #ff9900 #ff9900 #ff9900]]></option>
     </view>
     <view id="resource-table">
         <field id="0" name="Nombre" width="50" order="0"/>
-        <field id="1" name="Función" width="49" order="1"/>
+        <field id="1" name="Función" width="50" order="1"/>
     </view>
     <!-- -->
     <calendars>
@@ -78,8 +74,8 @@
     </tasks>
     <resources>
         <resource id="0" name="Ricardo Maciel" function="SoftwareDevelopment:2" contacts="" phone="0973506058"/>
-        <resource id="1" name="Francisco Benitez" function="Default:0" contacts="" phone="0995375717"/>
-        <resource id="2" name="Melanie Florentin" function="Default:0" contacts="" phone="0985136549"/>
+        <resource id="1" name="Francisco Benitez" function="SoftwareDevelopment:10" contacts="" phone="0995375717"/>
+        <resource id="2" name="Melanie Florentin" function="Default:1" contacts="" phone="0985136549"/>
         <resource id="3" name="Myriam Medina" function="Default:0" contacts="" phone="0985897478"/>
         <resource id="4" name="Sebastian Kazlauzkas " function="Default:0" contacts="" phone="0994853942"/>
         <resource id="5" name="Orlando Cardozo" function="Default:0" contacts="" phone="0995389937"/>
@@ -92,14 +88,15 @@
         <displaycolumn property-id="tpd8" order="-1" width="75" visible="false"/>
         <displaycolumn property-id="tpd12" order="-1" width="75" visible="false"/>
         <displaycolumn property-id="tpd6" order="-1" width="75" visible="false"/>
+        <displaycolumn property-id="tpd3" order="0" width="293" visible="true"/>
+        <displaycolumn property-id="tpd5" order="1" width="67" visible="true"/>
+        <displaycolumn property-id="tpd4" order="2" width="61" visible="true"/>
         <displaycolumn property-id="tpd10" order="-1" width="75" visible="false"/>
         <displaycolumn property-id="tpd11" order="-1" width="75" visible="false"/>
         <displaycolumn property-id="tpd1" order="-1" width="75" visible="false"/>
         <displaycolumn property-id="tpd7" order="-1" width="75" visible="false"/>
+        <displaycolumn property-id="tpd13" order="-1" width="75" visible="false"/>
         <displaycolumn property-id="tpd0" order="-1" width="75" visible="false"/>
-        <displaycolumn property-id="tpd3" order="0" width="157" visible="true"/>
-        <displaycolumn property-id="tpd4" order="1" width="94" visible="true"/>
-        <displaycolumn property-id="tpd5" order="2" width="94" visible="true"/>
     </taskdisplaycolumns>
     <previous/>
     <roles roleset-name="Default"/>
