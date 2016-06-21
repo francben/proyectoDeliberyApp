@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pedido_id: 1
+  empresa_id: 1
+  plato_id: 1
+  costo_plato: 1
+
+two:
+  pedido_id: 1
+  empresa_id: 1
+  plato_id: 1
+  costo_plato: 1

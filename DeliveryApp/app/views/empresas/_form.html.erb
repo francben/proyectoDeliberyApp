@@ -1,0 +1,79 @@
+<%= form_for(@empresa) do |f| %>
+  <% if @empresa.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@empresa.errors.count, "error") %> prohibited this empresa from being saved:</h2>
+
+      <ul>
+      <% @empresa.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+      <div class='panel panel-default'>
+        <div class="panel-body">
+          <div class="form-group col-lg-4">
+    <%= f.label :razonsocial %>
+    <%= f.text_field :razonsocial, autofocus: true, placeholder: 'Razon Social', class: 'form-control input-sm' %>
+          </div>
+
+          <div class="form-group col-lg-4">
+    <%= f.label :nombrecorto %>
+    <%= f.text_field :nombrecorto, autofocus: true, placeholder: 'Nombre Corto', class: 'form-control input-sm' %>
+          </div>
+
+          <div class="form-group col-lg-4">
+    <%= f.label :ruc %>
+    <%= f.text_field :ruc, autofocus: true, placeholder: 'RUC', class: 'form-control input-sm' %>
+          </div>
+
+          <div class="form-group col-lg-4">
+    <%= f.label :pais %>
+    <%= f.text_field :pais, autofocus: true, placeholder: 'Pais', class: 'form-control input-sm' %>
+          </div>
+
+          <div class="form-group col-lg-4">
+    <%= f.label :ciudad %>
+    <%= f.text_field :ciudad, autofocus: true, placeholder: 'Ciudad', class: 'form-control input-sm' %>
+          </div>
+
+          <div class="form-group col-lg-4">
+    <%= f.label :departamento %>
+    <%= f.text_field :departamento, autofocus: true, placeholder: 'Departamento', class: 'form-control input-sm' %>
+          </div>
+
+          <div class="form-group col-lg-4">
+    <%= f.label :direccion %>
+    <%= f.text_field :direccion, autofocus: true, placeholder: 'Direccion', class: 'form-control input-sm' %>
+          </div>
+
+          <div class="form-group col-lg-4">
+    <%= f.label :email %>
+    <%= f.text_field :email, autofocus: true, placeholder: 'Email', class: 'form-control input-sm' %>
+          </div>
+
+          <div class="form-group col-lg-4">
+    <%= f.label :telefono %>
+    <%= f.text_field :telefono, autofocus: true, placeholder: 'Telefono', class: 'form-control input-sm' %>
+          </div>
+
+          <div class="form-group col-lg-4">
+    <%= f.label :web %>
+    <%= f.text_field :web, autofocus: true, placeholder: 'Web', class: 'form-control input-sm' %>
+          </div>
+
+          <div class="form-group col-lg-4">
+    <%= f.label :estado %>
+    <%= f.check_box :estado %>
+  </div>
+        </div>
+        <div class="panel-footer">          
+          <div class="text-right">
+            <%= button_tag(type: 'submit', class: "btn btn-success btn-sm") do %>
+              <span class="fa fa-check"></span> Guardar
+            <% end %>            
+          </div>
+        </div>
+      </div>
+<% end %>

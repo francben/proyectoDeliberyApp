@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Empresa:</strong>
+  <%= @menu.empresa_id %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @menu.nombre %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @menu.estado %>
+</p>
+
+<%= link_to 'Edit', edit_menu_path(@menu) %> |
+<%= link_to 'Back', menus_path %>

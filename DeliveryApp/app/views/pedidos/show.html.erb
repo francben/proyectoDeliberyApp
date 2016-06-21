@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Empresa:</strong>
+  <%= @pedido.empresa_id %>
+</p>
+
+<p>
+  <strong>Orden numero:</strong>
+  <%= @pedido.orden_numero %>
+</p>
+
+<p>
+  <strong>Cliente:</strong>
+  <%= @pedido.cliente_id %>
+</p>
+
+<p>
+  <strong>Fecha pedido:</strong>
+  <%= @pedido.fecha_pedido %>
+</p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= @pedido.direccion %>
+</p>
+
+<p>
+  <strong>Monto total:</strong>
+  <%= @pedido.monto_total %>
+</p>
+
+<p>
+  <strong>Tiempo estimado envio:</strong>
+  <%= @pedido.tiempo_estimado_envio %>
+</p>
+
+<p>
+  <strong>Recepcionado:</strong>
+  <%= @pedido.recepcionado %>
+</p>
+
+<p>
+  <strong>Enviado:</strong>
+  <%= @pedido.enviado %>
+</p>
+
+<p>
+  <strong>Entregado:</strong>
+  <%= @pedido.entregado %>
+</p>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @pedido.usuario_id %>
+</p>
+
+<p>
+  <strong>Repartidor:</strong>
+  <%= @pedido.repartidor_id %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @pedido.estado %>
+</p>
+
+<%= link_to 'Edit', edit_pedido_path(@pedido) %> |
+<%= link_to 'Back', pedidos_path %>

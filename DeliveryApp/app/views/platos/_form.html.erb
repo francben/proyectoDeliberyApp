@@ -1,0 +1,33 @@
+<%= form_for(@plato) do |f| %>
+  <% if @plato.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@plato.errors.count, "error") %> prohibited this plato from being saved:</h2>
+
+      <ul>
+      <% @plato.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :img %><br>
+    <%= f.text_field :img %>
+  </div>
+  <div class="field">
+    <%= f.label :tiempo_preparacion %><br>
+    <%= f.time_select :tiempo_preparacion %>
+  </div>
+  <div class="field">
+    <%= f.label :estado %><br>
+    <%= f.check_box :estado %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Plato Categorias</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Plato</th>
+      <th>Categoria</th>
+      <th>Menu</th>
+      <th>Empresa</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @plato_categorias.each do |plato_categoria| %>
+      <tr>
+        <td><%= plato_categoria.plato_id %></td>
+        <td><%= plato_categoria.categoria_id %></td>
+        <td><%= plato_categoria.menu_id %></td>
+        <td><%= plato_categoria.empresa_id %></td>
+        <td><%= link_to 'Show', plato_categoria %></td>
+        <td><%= link_to 'Edit', edit_plato_categoria_path(plato_categoria) %></td>
+        <td><%= link_to 'Destroy', plato_categoria, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Plato categoria', new_plato_categoria_path %>

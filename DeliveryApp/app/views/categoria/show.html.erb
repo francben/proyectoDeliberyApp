@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Menu:</strong>
+  <%= @categorium.menu_id %>
+</p>
+
+<p>
+  <strong>Empresa:</strong>
+  <%= @categorium.empresa_id %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @categorium.nombre %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @categorium.estado %>
+</p>
+
+<%= link_to 'Edit', edit_categorium_path(@categorium) %> |
+<%= link_to 'Back', categoria_path %>

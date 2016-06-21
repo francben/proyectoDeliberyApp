@@ -1,0 +1,29 @@
+<%= form_for(@ingrediente_plato) do |f| %>
+  <% if @ingrediente_plato.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ingrediente_plato.errors.count, "error") %> prohibited this ingrediente_plato from being saved:</h2>
+
+      <ul>
+      <% @ingrediente_plato.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ingrediente_id %><br>
+    <%= f.number_field :ingrediente_id %>
+  </div>
+  <div class="field">
+    <%= f.label :plato_id %><br>
+    <%= f.number_field :plato_id %>
+  </div>
+  <div class="field">
+    <%= f.label :cantidad %><br>
+    <%= f.number_field :cantidad %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Pedidos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Empresa</th>
+      <th>Orden numero</th>
+      <th>Cliente</th>
+      <th>Fecha pedido</th>
+      <th>Direccion</th>
+      <th>Monto total</th>
+      <th>Tiempo estimado envio</th>
+      <th>Recepcionado</th>
+      <th>Enviado</th>
+      <th>Entregado</th>
+      <th>Usuario</th>
+      <th>Repartidor</th>
+      <th>Estado</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pedidos.each do |pedido| %>
+      <tr>
+        <td><%= pedido.empresa_id %></td>
+        <td><%= pedido.orden_numero %></td>
+        <td><%= pedido.cliente_id %></td>
+        <td><%= pedido.fecha_pedido %></td>
+        <td><%= pedido.direccion %></td>
+        <td><%= pedido.monto_total %></td>
+        <td><%= pedido.tiempo_estimado_envio %></td>
+        <td><%= pedido.recepcionado %></td>
+        <td><%= pedido.enviado %></td>
+        <td><%= pedido.entregado %></td>
+        <td><%= pedido.usuario_id %></td>
+        <td><%= pedido.repartidor_id %></td>
+        <td><%= pedido.estado %></td>
+        <td><%= link_to 'Show', pedido %></td>
+        <td><%= link_to 'Edit', edit_pedido_path(pedido) %></td>
+        <td><%= link_to 'Destroy', pedido, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pedido', new_pedido_path %>

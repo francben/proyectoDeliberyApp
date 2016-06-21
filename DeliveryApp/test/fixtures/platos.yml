@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  img: MyString
+  tiempo_preparacion: 2016-06-21 01:06:56
+  estado: false
+
+two:
+  nombre: MyString
+  img: MyString
+  tiempo_preparacion: 2016-06-21 01:06:56
+  estado: false

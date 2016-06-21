@@ -1,0 +1,93 @@
+<div class="box-header">
+    <h1><i class="glyphicon glyphicon-list"></i>
+        Ver datos del cliente <%= link_to glyph(:plus_sign)+' Nuevo Cliente', new_cliente_path, class: 'btn btn-primary btn-sm pull-right' %>
+    </h1>
+</div>
+<div class="box-body pad table-responsive">
+<table class="table table-striped table-hover ">
+  <tbody>
+    <tr>
+      <td>
+  <strong>Nombre:</strong>
+  <%= @cliente.nombre %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+  <strong>Apellido:</strong>
+  <%= @cliente.apellido %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+  <strong>Nombre usuario:</strong>
+  <%= @cliente.nombre_usuario %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+  <strong>Documento:</strong>
+  <%= @cliente.documento %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+  <strong>Email:</strong>
+  <%= @cliente.email %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+  <strong>Telefono:</strong>
+  <%= @cliente.telefono %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+  <strong>Celular:</strong>
+  <%= @cliente.celular %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+  <strong>Direccion:</strong>
+  <%= @cliente.direccion %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+  <strong>Pais:</strong>
+  <%= @cliente.pais %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+  <strong>Ciudad:</strong>
+  <%= @cliente.ciudad %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+  <strong>Departamento:</strong>
+  <%= @cliente.departamento %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+  <strong>Usuario:</strong>
+  <%= @cliente.usuario.nombre_usuario %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+  <strong>Estado:</strong>
+  <%= @cliente.estado %>
+      </td>
+    </tr>
+    </tbody>
+   </table>
+
+
+<%= link_to glyph(:arrow_left) + ' Volver', clientes_path %> | 
+<%= link_to glyph(:pencil) + ' Editar', edit_cliente_path(@cliente) %>
+</div>

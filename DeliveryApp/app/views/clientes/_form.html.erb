@@ -1,0 +1,94 @@
+<%= form_for(@cliente) do |f| %>
+  <% if @cliente.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
+
+      <ul>
+      <% @cliente.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+      <div class='panel panel-default'>
+        <div class="panel-body">
+          <div class="form-group col-lg-4">
+    <%= f.label :nombre %>
+    <%= f.text_field :nombre, autofocus: true, placeholder: 'Nombre', class: 'form-control input-sm' %>
+          </div>
+
+          <div class="form-group col-lg-4">
+    <%= f.label :apellido %>
+    <%= f.text_field :apellido, autofocus: true, placeholder: 'Apellido', class: 'form-control input-sm' %>
+          </div>
+
+          <div class="form-group col-lg-4">
+    <%= f.label :nombre_usuario %>
+    <%= f.text_field :nombre_usuario, autofocus: true, placeholder: 'Nombre de usuario', class: 'form-control input-sm' %>
+          </div>
+
+          <div class="form-group col-lg-4">
+    <%= f.label :documento %>
+    <%= f.text_field :documento, autofocus: true, placeholder: 'Documento de identidad', class: 'form-control input-sm' %>
+          </div>
+
+          <div class="form-group col-lg-4">
+    <%= f.label :email %>
+    <%= f.text_field :email, autofocus: true, placeholder: 'Email', class: 'form-control input-sm' %>
+          </div>
+
+          <div class="form-group col-lg-4">
+    <%= f.label :telefono %>
+    <%= f.text_field :telefono, autofocus: true, placeholder: 'Telefono', class: 'form-control input-sm' %>
+          </div>
+
+          <div class="form-group col-lg-4">
+    <%= f.label :celular %>
+    <%= f.text_field :celular, autofocus: true, placeholder: 'Celular', class: 'form-control input-sm' %>
+          </div>
+
+          <div class="form-group col-lg-4">
+    <%= f.label :direccion %>
+    <%= f.text_field :direccion, autofocus: true, placeholder: 'Direccion', class: 'form-control input-sm' %>
+          </div>
+
+          <div class="form-group col-lg-4">
+    <%= f.label :pais %>
+    <%= f.text_field :pais, autofocus: true, placeholder: 'Pais', class: 'form-control input-sm' %>
+          </div>
+
+          <div class="form-group col-lg-4">
+    <%= f.label :ciudad %>
+    <%= f.text_field :ciudad, autofocus: true, placeholder: 'Ciudad', class: 'form-control input-sm' %>
+          </div>
+
+          <div class="form-group col-lg-4">
+    <%= f.label :departamento %>
+    <%= f.text_field :departamento, autofocus: true, placeholder: 'Departamento', class: 'form-control input-sm' %>
+          </div>
+
+          <div class="form-group col-lg-4">
+            <%= f.label :usuario_id %>
+            <%= f.number_field :usuario_id, placeholder: 'Usuario', class: 'form-control input-sm', list: 'usuarios' %>
+            <datalist id="usuarios">
+              <% Usuario.all.each do |usuario| %>
+                <option value="<%= usuario.id %>"><%= usuario.nombre_usuario %></option>
+              <% end %>
+            </datalist>
+          </div>
+
+          <div class="form-group col-lg-4">
+    <%= f.label :estado %>
+    <%= f.check_box :estado %>
+  </div>
+        </div>
+        <div class="panel-footer">          
+          <div class="text-right">
+            <%= button_tag(type: 'submit', class: "btn btn-success btn-sm") do %>
+              <span class="fa fa-check"></span> Guardar
+            <% end %>            
+          </div>
+        </div>
+      </div>
+<% end %>

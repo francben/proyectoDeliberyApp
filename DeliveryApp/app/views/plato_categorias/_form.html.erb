@@ -1,0 +1,33 @@
+<%= form_for(@plato_categoria) do |f| %>
+  <% if @plato_categoria.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@plato_categoria.errors.count, "error") %> prohibited this plato_categoria from being saved:</h2>
+
+      <ul>
+      <% @plato_categoria.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :plato_id %><br>
+    <%= f.number_field :plato_id %>
+  </div>
+  <div class="field">
+    <%= f.label :categoria_id %><br>
+    <%= f.number_field :categoria_id %>
+  </div>
+  <div class="field">
+    <%= f.label :menu_id %><br>
+    <%= f.number_field :menu_id %>
+  </div>
+  <div class="field">
+    <%= f.label :empresa_id %><br>
+    <%= f.number_field :empresa_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,10 @@
+
+<div class="box-header with-border">
+    <h3 class="box-title"><i class="fa fa-cart-plus"></i>
+        Nuevo Pedido 
+    </h3>
+    <%= link_to glyph(:arrow_left) + ' Volver', pedidos_path, class: 'pull-right' %>
+
+</div>
+<div class="box-body pad table-responsive">
+<%= render 'form' %>

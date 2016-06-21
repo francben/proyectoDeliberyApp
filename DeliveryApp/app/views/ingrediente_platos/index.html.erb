@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Ingrediente Platos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ingrediente</th>
+      <th>Plato</th>
+      <th>Cantidad</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ingrediente_platos.each do |ingrediente_plato| %>
+      <tr>
+        <td><%= ingrediente_plato.ingrediente_id %></td>
+        <td><%= ingrediente_plato.plato_id %></td>
+        <td><%= ingrediente_plato.cantidad %></td>
+        <td><%= link_to 'Show', ingrediente_plato %></td>
+        <td><%= link_to 'Edit', edit_ingrediente_plato_path(ingrediente_plato) %></td>
+        <td><%= link_to 'Destroy', ingrediente_plato, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ingrediente plato', new_ingrediente_plato_path %>
