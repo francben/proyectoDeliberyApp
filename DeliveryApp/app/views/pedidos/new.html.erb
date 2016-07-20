@@ -1,10 +1,15 @@
 
-<div class="box-header with-border">
-    <h3 class="box-title"><i class="fa fa-cart-plus"></i>
-        Nuevo Pedido 
-    </h3>
-    <%= link_to glyph(:arrow_left) + ' Volver', pedidos_path, class: 'pull-right' %>
 
+<div class="box box-primary">
+<div class='box-header with-border'>
+    <div class="user-block">
+        <img class="img-circle tip" src="http://localhost:3000/img/delivery.jpg" width="50" title="" alt="">
+        <span class="username text-light-blue text-blue"><%=@titulo %>  </span>
+        <span class='description'><%=@clase %> </span>
+    </div>
+    <div class='box-tools btn-group'>
+        <%=link_to glyph(:th_list)+' Ir a Listado', pedidos_path, class:'btn btn-link btn-sm tip', title: 'Ir a Listado' %>
+    </div>
 </div>
-<div class="box-body pad table-responsive">
 <%= render 'form' %>
+</div>

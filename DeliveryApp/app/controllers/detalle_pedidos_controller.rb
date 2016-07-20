@@ -69,6 +69,6 @@ class DetallePedidosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def detalle_pedido_params
-      params.require(:detalle_pedido).permit(:pedido_id, :empresa_id, :plato_id, :costo_plato)
+      params.require(:detalle_pedido).permit(:pedido_id, :empresa_id, :plato_id, :cantidad, :costo_plato)
     end
 end

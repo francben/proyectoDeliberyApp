@@ -1,6 +1,16 @@
-<h1>Editing Pedido</h1>
 
+<div class="box box-primary">
+<div class='box-header with-border'>
+    <div class="user-block">
+        <img class="img-circle tip" src="http://localhost:3000/img/delivery.jpg" width="50" title="" alt="">
+        <span class="username text-light-blue text-blue"><%=@titulo %>  </span>
+        <span class='description'><%=@clase %> </span>
+    </div>
+    <div class='box-tools btn-group'>
+        <%=link_to glyph(:th_list)+' Ir a Listado', pedidos_path, class:'btn btn-link btn-sm tip', title: 'Ir a Listado' %>
+        <%=link_to glyph(:eye_open)+' Ver pedido', @pedido, class:'btn btn-link btn-sm tip', title: 'Ver pedido' %>
+        <%=link_to glyph(:plus_sign)+' Nuevo pedido', new_pedido_path, class:'btn btn-link btn-sm tip', title: 'Nuevo pedido' %>
+    </div>
+</div>
 <%= render 'form' %>
-
-<%= link_to 'Show', @pedido %> |
-<%= link_to 'Back', pedidos_path %>
+</div>

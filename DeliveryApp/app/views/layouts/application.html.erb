@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>DeliverYApp</title>
+        <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -121,7 +122,6 @@
                             <ul class="treeview-menu">
                                 <li><%= link_to  glyph(:list) + " Lista", "/pedidos" %></li>
                                 <li><%= link_to  glyph(:plus) + " Nuevo", new_pedido_path %></li>
-
                                 <li class="treeview">
                                     <a href="">
                                     <i class="en-cone"></i> <span>Cliente</span> <i class="fa fa-angle-left pull-right"></i>
@@ -174,7 +174,7 @@
             <div class="content-wrapper">
                 <section class="content">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-lg-12">
                             <% if notice %>
                             <%= bootstrap_flash %> 
                             <% end %>
@@ -182,12 +182,8 @@
                             <%= bootstrap_flash %> 
                             <% end %>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="box box-primary">
-                                <%=yield%>
-                            </div>
+                        <div class="col-lg-12">
+                            <%=yield%>
                         </div>
                     </div>
                 </section>
@@ -202,11 +198,46 @@
         </div>
         <!-- ./wrapper -->
         <script type="text/javascript">
-            $('input').iCheck({
-                checkboxClass: 'icheckbox_square-blue',
-                radioClass: 'iradio_square-blue',
-                increaseArea: '20%' // optional
+            $(document).ready(function() {
+                var oTable = $('#tablaMenu,#tablaMenu1,#tablaMenu2').DataTable({
+                "bProcessing": true,
+                "sPaginationType": "full_numbers",
+                "paging": true,
+                "iDisplayLength": 8,
+                "bPaginate": true,
+                "bSort": true,
+                "oLanguage": {
+                    "oPaginate": {
+                        "sPrevious": "←",
+                        "sNext": "→",
+                        "sLast": "»",
+                        "sFirst": "«"
+                    },
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningún dato disponible en esta tabla",
+                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Buscar:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oAria": {
+                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    }
+                }
             });
+                $('input').iCheck({
+                    checkboxClass: 'icheckbox_minimal-blue',
+                    radioClass: 'icheckbox_minimal-blue',
+                    increaseArea: '20%' // optional
+                });
+            } );
+            
         </script>
     </body>
 </html>

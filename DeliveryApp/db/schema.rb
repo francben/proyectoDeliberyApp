@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160621165043) do
+ActiveRecord::Schema.define(version: 20160720204445) do
 
   create_table "categorias", force: :cascade do |t|
     t.integer  "menu_id",    limit: 4
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20160621165043) do
     t.integer  "pedido_id",   limit: 4
     t.integer  "empresa_id",  limit: 4
     t.integer  "plato_id",    limit: 4
+    t.integer  "cantidad",    limit: 4
     t.integer  "costo_plato", limit: 4
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false

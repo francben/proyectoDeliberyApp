@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :detalle_pedidos
+  resources :detalle_pedidos
   resources :pedidos
   resources :repartidors
   resources :pedidos
@@ -34,7 +35,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'roles#index'
+  root 'pedidos#new'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

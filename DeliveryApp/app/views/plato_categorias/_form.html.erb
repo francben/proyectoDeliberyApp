@@ -1,33 +1,44 @@
-<%= form_for(@plato_categoria) do |f| %>
-  <% if @plato_categoria.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@plato_categoria.errors.count, "error") %> prohibited this plato_categoria from being saved:</h2>
 
-      <ul>
-      <% @plato_categoria.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="box-body">
+<%= form_for(@plato_categoria, html: {class: 'form-horizontal'}) do |f| %>
+<% if @plato_categoria.errors.any? %>
+<div id="error_explanation" class="callout callout-danger">
+    <h4><%= pluralize(@plato_categoria.errors.count, "error") %> impidieron que esta categoria fuera guardado:</h2>
+        <% @plato_categoria.errors.full_messages.each do |message| %>
+        <small class=""><i class="glyphicon glyphicon-remove"></i> <%= message %>.</small><br />
+        <% end %>
+</div>
+<% end %>
+        <div class="form-group">
+            <%= f.label :plato_id, class: 'col-lg-2 control-label' %>
+            <div class="col-lg-10">
+              <%= f.text_field :plato_id, placeholder: 'Plato', class: 'form-control input-sm' %>
+            </div>
+        </div>
+        <div class="form-group">
+            <%= f.label :categoria_id, class: 'col-lg-2 control-label' %>
+            <div class="col-lg-10">
+              <%= f.text_field :categoria_id, placeholder: 'Categoria' , class: 'form-control input-sm'  %>
+            </div>
+        </div>
+        <div class="form-group">
+            <%= f.label :menu_id, class: 'col-lg-2 control-label' %>
+            <div class="col-lg-10">
+              <%= f.number_field :menu_id, placeholder: 'Menu', class: 'form-control input-sm'   %>
+            </div>
+        </div>
+        <div class="form-group">
+            <%= f.label :empresa_id, class: 'col-lg-2 control-label' %>
+            <div class="col-lg-10">
+              <%= f.number_field :empresa_id, placeholder: 'Empresa', class: 'form-control input-sm'   %>
+            </div>
+        </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :plato_id %><br>
-    <%= f.number_field :plato_id %>
-  </div>
-  <div class="field">
-    <%= f.label :categoria_id %><br>
-    <%= f.number_field :categoria_id %>
-  </div>
-  <div class="field">
-    <%= f.label :menu_id %><br>
-    <%= f.number_field :menu_id %>
-  </div>
-  <div class="field">
-    <%= f.label :empresa_id %><br>
-    <%= f.number_field :empresa_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="box-footer">
+        <div class="text-right">
+            <%= button_tag(type: 'submit', class: "btn btn-success btn-sm") do %>
+            <span class="fa fa-check"></span> Guardar
+            <% end %>            
+        </div>
+    </div>
 <% end %>

@@ -18,7 +18,7 @@ class DetallePedidosControllerTest < ActionController::TestCase
 
   test "should create detalle_pedido" do
     assert_difference('DetallePedido.count') do
-      post :create, detalle_pedido: { costo_plato: @detalle_pedido.costo_plato, empresa_id: @detalle_pedido.empresa_id, pedido_id: @detalle_pedido.pedido_id, plato_id: @detalle_pedido.plato_id }
+      post :create, detalle_pedido: { cantidad: @detalle_pedido.cantidad, costo_plato: @detalle_pedido.costo_plato, empresa_id: @detalle_pedido.empresa_id, pedido_id: @detalle_pedido.pedido_id, plato_id: @detalle_pedido.plato_id }
     end
 
     assert_redirected_to detalle_pedido_path(assigns(:detalle_pedido))
@@ -35,7 +35,7 @@ class DetallePedidosControllerTest < ActionController::TestCase
   end
 
   test "should update detalle_pedido" do
-    patch :update, id: @detalle_pedido, detalle_pedido: { costo_plato: @detalle_pedido.costo_plato, empresa_id: @detalle_pedido.empresa_id, pedido_id: @detalle_pedido.pedido_id, plato_id: @detalle_pedido.plato_id }
+    patch :update, id: @detalle_pedido, detalle_pedido: { cantidad: @detalle_pedido.cantidad, costo_plato: @detalle_pedido.costo_plato, empresa_id: @detalle_pedido.empresa_id, pedido_id: @detalle_pedido.pedido_id, plato_id: @detalle_pedido.plato_id }
     assert_redirected_to detalle_pedido_path(assigns(:detalle_pedido))
   end
 

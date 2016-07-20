@@ -1,43 +1,38 @@
-
-<%= form_for(@rol) do |f| %>
-  <% if @rol.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@rol.errors.count, "error") %> impidieron que este rol fuera guardado:</h2>
-
-      <ul>
-      <% @rol.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="box-body">
+<%= form_for(@rol, html: {class: 'form-horizontal'}) do |f| %>
+<% if @rol.errors.any? %>
+<div id="error_explanation" class="callout callout-danger">
+    <h4><%= pluralize(@rol.errors.count, "error") %> impidieron que este rol fuera guardado:</h2>
+        <% @rol.errors.full_messages.each do |message| %>
+        <small class=""><i class="glyphicon glyphicon-remove"></i> <%= message %>.</small><br />
+        <% end %>
+</div>
+<% end %>
+        <div class="form-group">
+            <%= f.label :nombre_rol, class: 'col-lg-2 control-label' %>
+            <div class="col-lg-10">
+              <%= f.text_field :nombre_rol, placeholder: 'Nombre', class: 'form-control input-sm' %>
+            </div>
+        </div>
+        <div class="form-group">
+            <%= f.label :descripcion_rol, class: 'col-lg-2 control-label' %>
+            <div class="col-lg-10">
+              <%= f.text_field :descripcion_rol, placeholder: 'Descripcion' , class: 'form-control input-sm'  %>
+            </div>
+        </div>
+        <div class="form-group">
+            <%= f.label :estado_rol, class: 'col-lg-2 control-label' %>
+            <div class="col-lg-10">
+              <%= f.number_field :estado_rol, placeholder: 'Estado', class: 'form-control input-sm'   %>
+            </div>
+        </div>
     </div>
-  <% end %>
 
-
-      <div class='panel panel-default'>
-        <div class="panel-body">
-          <div class="form-group col-lg-3">
-            <%= f.label :nombre_rol%>
-            <%= f.text_field :nombre_rol, placeholder: 'Nombre', class: 'form-control input-sm' %>
-          </div>
-
-          <div class="form-group col-lg-6">
-            <%= f.label :descripcion_rol%>
-            <%= f.text_field :descripcion_rol, placeholder: 'Descripcion' , class: 'form-control input-sm'  %>
-          </div>
-
-          <div class="form-group col-lg-3">
-            <%= f.label :estado_rol%>
-            <%= f.number_field :estado_rol, placeholder: 'Estado', class: 'form-control input-sm'   %>
-          </div>
-
-        </div>
-        <div class="panel-footer">          
-          <div class="text-right">
+    <div class="box-footer">
+        <div class="text-right">
             <%= button_tag(type: 'submit', class: "btn btn-success btn-sm") do %>
-              <span class="fa fa-check"></span> Guardar
+            <span class="fa fa-check"></span> Guardar
             <% end %>            
-          </div>
         </div>
-      </div>
-
+    </div>
 <% end %>
