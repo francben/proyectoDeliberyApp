@@ -1,20 +1,14 @@
 Rails.application.routes.draw do
 
-  resources :detalle_pedidos
+  resources :precios
+  resources :categorias
   resources :detalle_pedidos
   resources :pedidos
   resources :repartidors
-  resources :pedidos
-  resources :plato_categorias
-  resources :categorias
   resources :menus
-  resources :categoria
-  resources :plato_categoria
   resources :ingrediente_platos
   resources :platos
   resources :ingredientes
-  resources :clientes
-  resources :empresas
   resources :clientes
   resources :empresas
   devise_for :usuarios,  controllers: { sessions: "usuarios/sessions", registrations: "usuarios/registrations", 

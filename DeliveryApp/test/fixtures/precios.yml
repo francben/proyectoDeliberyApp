@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  menu_id: 1
-  nombre: MyString
+  plato_id: 1
+  categoria_id: 1
+  precio: 1
   estado: false
 
 two:
-  menu_id: 1
-  nombre: MyString
+  plato_id: 1
+  categoria_id: 1
+  precio: 1
   estado: false

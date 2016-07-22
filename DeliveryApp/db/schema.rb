@@ -15,14 +15,12 @@ ActiveRecord::Schema.define(version: 20160720204445) do
 
   create_table "categorias", force: :cascade do |t|
     t.integer  "menu_id",    limit: 4
-    t.integer  "empresa_id", limit: 4
     t.string   "nombre",     limit: 255
     t.boolean  "estado"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
 
-  add_index "categorias", ["empresa_id"], name: "categorias_empresa_id_fk", using: :btree
   add_index "categorias", ["menu_id"], name: "categorias_menu_id_fk", using: :btree
   add_index "categorias", ["nombre"], name: "index_categorias_on_nombre", unique: true, using: :btree
 
@@ -134,20 +132,6 @@ ActiveRecord::Schema.define(version: 20160720204445) do
   add_index "pedidos", ["repartidor_id"], name: "pedidos_repartidor_id_fk", using: :btree
   add_index "pedidos", ["usuario_id"], name: "pedidos_usuario_id_fk", using: :btree
 
-  create_table "plato_categorias", force: :cascade do |t|
-    t.integer  "plato_id",     limit: 4
-    t.integer  "categoria_id", limit: 4
-    t.integer  "menu_id",      limit: 4
-    t.integer  "empresa_id",   limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  add_index "plato_categorias", ["categoria_id"], name: "plato_categorias_categoria_id_fk", using: :btree
-  add_index "plato_categorias", ["empresa_id"], name: "plato_categorias_empresa_id_fk", using: :btree
-  add_index "plato_categorias", ["menu_id"], name: "plato_categorias_menu_id_fk", using: :btree
-  add_index "plato_categorias", ["plato_id"], name: "plato_categorias_plato_id_fk", using: :btree
-
   create_table "platos", force: :cascade do |t|
     t.string   "nombre",             limit: 255
     t.string   "img",                limit: 255
@@ -158,6 +142,19 @@ ActiveRecord::Schema.define(version: 20160720204445) do
   end
 
   add_index "platos", ["nombre"], name: "index_platos_on_nombre", unique: true, using: :btree
+
+  create_table "precios", force: :cascade do |t|
+    t.integer  "plato_id",     limit: 4
+    t.integer  "categoria_id", limit: 4
+    t.integer  "precio",       limit: 4
+    t.boolean  "estado"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "precios", ["categoria_id"], name: "precios_categoria_id_fk", using: :btree
+  add_index "precios", ["plato_id"], name: "precios_plato_id_fk", using: :btree
+  add_index "precios", ["precio"], name: "index_precios_on_precio", using: :btree
 
   create_table "repartidors", force: :cascade do |t|
     t.string   "nombre",      limit: 255

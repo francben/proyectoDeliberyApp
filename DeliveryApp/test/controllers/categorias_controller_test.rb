@@ -18,7 +18,7 @@ class CategoriasControllerTest < ActionController::TestCase
 
   test "should create categoria" do
     assert_difference('Categoria.count') do
-      post :create, categoria: { empresa_id: @categoria.empresa_id, estado: @categoria.estado, menu_id: @categoria.menu_id, nombre: @categoria.nombre }
+      post :create, categoria: { estado: @categoria.estado, menu_id: @categoria.menu_id, nombre: @categoria.nombre }
     end
 
     assert_redirected_to categoria_path(assigns(:categoria))
@@ -35,7 +35,7 @@ class CategoriasControllerTest < ActionController::TestCase
   end
 
   test "should update categoria" do
-    patch :update, id: @categoria, categoria: { empresa_id: @categoria.empresa_id, estado: @categoria.estado, menu_id: @categoria.menu_id, nombre: @categoria.nombre }
+    patch :update, id: @categoria, categoria: { estado: @categoria.estado, menu_id: @categoria.menu_id, nombre: @categoria.nombre }
     assert_redirected_to categoria_path(assigns(:categoria))
   end
 

@@ -1,69 +1,195 @@
-<p id="notice"><%= notice %></p>
+<div class="box box-primary">
+<div class='box-header with-border'>
+    <div class="user-block">
+        <img class="img-circle tip" src="http://localhost:3000/img/delivery.jpg" width="50" title="" alt="">
+        <span class="username text-light-blue text-blue"><%=@titulo %>  </span>
+        <span class='description'><%=@clase %> </span>
+    </div>
+    <div class='box-tools btn-group'>
+        <%=link_to glyph(:th_list)+' Ir a Listado', pedidos_path, class:'btn btn-link visible-lg btn-sm tip', title: 'Ir a Listado' %>
+        <%=link_to glyph(:edit)+' Editar pedido', edit_pedido_path(@pedido), class:'btn visible-lg btn-link btn-sm tip', title: 'Editar pedido' %>
+        <%=link_to glyph(:plus_sign)+' Nuevo pedido', new_pedido_path, class:'btn btn-link visible-lg btn-sm tip', title: 'Nuevo pedido' %>
 
-<p>
-  <strong>Empresa:</strong>
-  <%= @pedido.empresa_id %>
-</p>
 
-<p>
-  <strong>Orden numero:</strong>
-  <%= @pedido.orden_numero %>
-</p>
+        <%=link_to glyph(:th_list)+'', pedidos_path, class:'btn btn-link hidden-lg btn-sm tip', title: 'Ir a Listado' %>
+        <%=link_to glyph(:edit)+'', edit_pedido_path(@pedido), class:'btn btn-link hidden-lg  btn-sm tip', title: 'Editar pedido' %>
+        <%=link_to glyph(:plus_sign)+'', new_pedido_path, class:'btn btn-link  hidden-lg  btn-sm tip', title: 'Nuevo pedido' %>
+    </div>
+</div>
+<div class="box-body">
 
-<p>
-  <strong>Cliente:</strong>
-  <%= @pedido.cliente_id %>
-</p>
+    <div class="col-lg-9">
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="" class="col-lg-4 control-label">Restaurante:</label>
+            <div class="col-lg-8">
+                <span class="pull-right"><small class="text-primary"> <%= @pedido.empresa.razonsocial %></small></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="" class="col-lg-4 control-label">Cliente:</label>
+            <div class="col-lg-8">
+                <span class="pull-right"><small class="text-primary"> <%= @pedido.cliente.nombre %> <%= @pedido.cliente.apellido %></small></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="" class="col-lg-4 control-label">Orden:</label>
+            <div class="col-lg-8">
+                <span class="pull-right label label-primary"><small><%= @pedido.orden_numero %> </small></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="" class="col-lg-4 control-label">Fecha:</label>
+            <div class="col-lg-8">
+                <span class="pull-right"><small class="text-primary"><%= @pedido.fecha_pedido %> </small></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="" class="col-lg-4 control-label">Dirección:</label>
+            <div class="col-lg-8">
+                <span class="pull-right"><small class="text-primary"><%= @pedido.direccion%> </small></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="" class="col-lg-4 control-label">Total:</label>
+            <div class="col-lg-8">
+                <span class="pull-right"><small class="text-primary"><%= @pedido.monto_total %> </small></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="" class="col-lg-4 control-label">Estimado:</label>
+            <div class="col-lg-8">
+                <span class="pull-right"><small class="text-primary"><%= @pedido.tiempo_estimado_envio.strftime("%H:%M:%S") %> </small></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="" class="col-lg-4 control-label">Usuario:</label>
+            <div class="col-lg-8">
+                <span class="pull-right"><small class="text-primary"><%= @pedido.usuario.nombre_usuario %> </small></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="" class="col-lg-4 control-label">Repartidor:</label>
+            <div class="col-lg-8">
+                <span class="pull-right"><small class="text-primary"><%= @pedido.repartidor.nombre %><%= @pedido.repartidor.apellido %> </small> </span>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="col-lg-3">
+      
+    <div class="col-lg-12">
+        <div class="form-group">
+            <label for="" class="col-lg-4 control-label">Recepcionado:</label>
+            <div class="col-lg-8">
+                <span class="pull-right">
+                 <% if (@pedido.recepcionado == true) %>
+                  <input type="checkbox"  checked="">
+                 <% else %>
+                  <input type="checkbox">
+                 <% end %>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <div class="form-group">
+            <label for="" class="col-lg-4 control-label">Enviado:</label>
+            <div class="col-lg-8">
+                <span class="pull-right">
+                 <% if (@pedido.enviado == true) %>
+                  <input type="checkbox"  checked="">
+                 <% else %>
+                  <input type="checkbox">
+                 <% end %>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <div class="form-group">
+            <label for="" class="col-lg-4 control-label">Estregado:</label>
+            <div class="col-lg-8">
+                <span class="pull-right">
+                 <% if (@pedido.entregado == true) %>
+                  <input type="checkbox"  checked="">
+                 <% else %>
+                  <input type="checkbox">
+                 <% end %>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <div class="form-group">
+            <label for="" class="col-lg-4 control-label">Estado:</label>
+            <div class="col-lg-8">
+                <span class="pull-right">
+                 <% if (@pedido.estado == true) %>
+                  <input type="checkbox"  checked="">
+                 <% else %>
+                  <input type="checkbox">
+                 <% end %>
+                </span>
+            </div>
+        </div>
+    </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Fecha pedido:</strong>
-  <%= @pedido.fecha_pedido %>
-</p>
+<div class="box-footer">
+<div class="col-lg-12">
+  <h4 id="">Detalles del Pedido</h4>
+</div>
+  </div>
 
-<p>
-  <strong>Direccion:</strong>
-  <%= @pedido.direccion %>
-</p>
+<div class="box-body">
+<div class=" table-responsive">
+<table class="table table-striped table-hover table-condensed" cellspacing="0" width="100%" id="tablaMen">
+  <thead>
+    <tr class="">
+      <th>Plato</th>
+      <th>Cantidad</th>
+      <th>Costo</th>
+      <th class="text-right">Total</th>
+    </tr>
+  </thead>
+  <tbody>
 
-<p>
-  <strong>Monto total:</strong>
-  <%= @pedido.monto_total %>
-</p>
+  <% @pedido.detalle_pedidos.each do |d| %>
+    <tr>
+      <td><small> <%= d.plato.nombre %></small> </td>
+      <td><%= d.cantidad %> </td>
+      <td><%= d.costo_plato %> </td>
+      <td class="text-right"><%= d.cantidad * d.costo_plato %> </td>
+    </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr class="">
+      <th colspan="3" class="text-right"><h3>Total</h3></th>
+      <td class="text-right"><h3><%= @pedido.monto_total %> </h3></td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+</div>
 
-<p>
-  <strong>Tiempo estimado envio:</strong>
-  <%= @pedido.tiempo_estimado_envio %>
-</p>
 
-<p>
-  <strong>Recepcionado:</strong>
-  <%= @pedido.recepcionado %>
-</p>
-
-<p>
-  <strong>Enviado:</strong>
-  <%= @pedido.enviado %>
-</p>
-
-<p>
-  <strong>Entregado:</strong>
-  <%= @pedido.entregado %>
-</p>
-
-<p>
-  <strong>Usuario:</strong>
-  <%= @pedido.usuario_id %>
-</p>
-
-<p>
-  <strong>Repartidor:</strong>
-  <%= @pedido.repartidor_id %>
-</p>
-
-<p>
-  <strong>Estado:</strong>
-  <%= @pedido.estado %>
-</p>
-
-<%= link_to 'Edit', edit_pedido_path(@pedido) %> |
-<%= link_to 'Back', pedidos_path %>
+</div>

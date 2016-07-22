@@ -166,6 +166,33 @@
                                         <li><%= link_to  glyph(:plus) + " Nuevo", new_plato_path %></li>
                                     </ul>
                                 </li>
+                                <li class="treeview">
+                                    <a href="">
+                                    <i class="en-cone"></i> <span>Repartidores</span> <i class="fa fa-angle-left pull-right"></i>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><%= link_to  glyph(:list) + " Lista", "/repartidors" %></li>
+                                        <li><%= link_to  glyph(:plus) + " Nuevo", new_repartidor_path %></li>
+                                    </ul>
+                                </li>
+                                <li class="treeview">
+                                    <a href="">
+                                    <i class="en-cone"></i> <span>Categorias</span> <i class="fa fa-angle-left pull-right"></i>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><%= link_to  glyph(:list) + " Lista", "/categoria" %></li>
+                                        <li><%= link_to  glyph(:plus) + " Nuevo", new_categoria_path %></li>
+                                    </ul>
+                                </li>
+                                <li class="treeview">
+                                    <a href="">
+                                    <i class="en-cone"></i> <span>Precios</span> <i class="fa fa-angle-left pull-right"></i>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><%= link_to  glyph(:list) + " Lista", "/precios" %></li>
+                                        <li><%= link_to  glyph(:plus) + " Nuevo", new_precio_path %></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </li>
                     </ul>
@@ -236,6 +263,32 @@
                     radioClass: 'icheckbox_minimal-blue',
                     increaseArea: '20%' // optional
                 });
+                 $(".select2").select2();
+
+
+
+
+
+            $('.datetimepicker').datetimepicker({
+                icons: {
+                    time: "fa fa-clock-o",
+                    date: "fa fa-calendar",
+                    up: "fa fa-arrow-up",
+                    down: "fa fa-arrow-down"
+                },
+                format: 'DD/MM/YYYY'
+            });
+
+            $('#pedido_tiempo_estimado_envio').datetimepicker({
+                icons: {
+                    time: "fa fa-clock-o",
+                    date: "fa fa-calendar",
+                    up: "fa fa-arrow-up",
+                    down: "fa fa-arrow-down"
+                },
+                format: 'HH:mm:ss'
+            });
+
             } );
             
         </script>

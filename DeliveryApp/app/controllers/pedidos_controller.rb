@@ -4,23 +4,32 @@ class PedidosController < ApplicationController
   # GET /pedidos
   # GET /pedidos.json
   def index
+    @titulo = "Listado de Pedidos"
+    @clase = "Pedidos"
     @pedidos = Pedido.all
   end
 
   # GET /pedidos/1
   # GET /pedidos/1.json
   def show
+    @titulo = "Ver Pedido"
+    @clase = "Pedidos"
   end
 
   # GET /pedidos/new
   def new
+    @titulo = "Nuevo Pedido"
+    @clase = "Pedidos"
     @pedido = Pedido.new
+    @siguienteorden = (Pedido.maximum(:orden_numero) || 0 ) + 1
+    @fecha = Date.today.strftime("%d/%m/%Y")
   end
 
   # GET /pedidos/1/edit
   def edit
+    @titulo = "Modificar Pedido"
+    @clase = "Pedidos"
   end
-
   # POST /pedidos
   # POST /pedidos.json
   def create
