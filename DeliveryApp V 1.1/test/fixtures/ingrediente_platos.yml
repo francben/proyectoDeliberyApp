@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ingrediente_id: 1
+  plato_id: 1
+  cantidad: 1
+
+two:
+  ingrediente_id: 1
+  plato_id: 1
+  cantidad: 1

@@ -1,0 +1,78 @@
+<%= form_for(@usuario) do |f| %>
+  <% if @usuario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+
+      <ul>
+      <% @usuario.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+      <div class='panel panel-default'>
+        <div class="panel-body">
+          <div class="form-group col-lg-4">
+            <%= f.label :email%>
+            <%= f.text_field :email, autofocus: true, placeholder: 'Email', class: 'form-control input-sm' %>
+          </div>
+
+          <div class="form-group col-lg-4">
+            <%= f.label :nick_usuario%>
+            <%= f.text_field :nick_usuario, placeholder: 'Nick usuario', class: 'form-control input-sm' %>
+          </div>
+
+          <div class="form-group col-lg-4">
+            <%= f.label :documento_usuario%>
+            <%= f.text_field :documento_usuario, placeholder: 'Documento' , class: 'form-control input-sm'  %>
+          </div>
+
+          <div class="form-group col-lg-4">
+            <%= f.label :nombre_usuario%>
+            <%= f.text_field :nombre_usuario, placeholder: 'Nombre', class: 'form-control input-sm' %>
+          </div>
+
+          <div class="form-group col-lg-4">
+            <%= f.label :apellido_usuario%>
+            <%= f.text_field :apellido_usuario, placeholder: 'Apellido', class: 'form-control input-sm' %>
+          </div>
+
+          <div class="form-group col-lg-4">
+            <%= f.label :rol_id %>
+            <%= f.number_field :rol_id, placeholder: 'Rol', class: 'form-control input-sm', list: 'roles' %>
+            <datalist id="roles">
+              <% Rol.all.each do |rol| %>
+                <option value="<%= rol.id %>"><%= rol.nombre_rol %></option>
+              <% end %>
+            </datalist>
+          </div>
+
+          <div class="form-group col-lg-4">
+            <%= f.label :estado_usuario%>
+            <%= f.number_field :estado_usuario, placeholder: 'Estado', class: 'form-control input-sm'   %>
+          </div>
+
+          <div class="form-group col-lg-4">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> caracteres mínimos)</em>
+        <% end %>
+        <%= f.password_field :password, class: 'form-control input-sm', placeholder: 'Contraseña', require: '' %>
+  </div>
+
+          <div class="form-group col-lg-4">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: 'form-control input-sm', placeholder: 'Confirmar contraseña', require: '' %>
+  </div>
+        </div>
+        <div class="panel-footer">          
+          <div class="text-right">
+            <%= button_tag(type: 'submit', class: "btn btn-success btn-sm") do %>
+              <span class="fa fa-check"></span> Guardar
+            <% end %>            
+          </div>
+        </div>
+      </div>
+
+<% end %>

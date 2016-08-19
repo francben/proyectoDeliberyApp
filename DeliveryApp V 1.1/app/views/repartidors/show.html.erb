@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @repartidor.nombre %>
+</p>
+
+<p>
+  <strong>Apellido:</strong>
+  <%= @repartidor.apellido %>
+</p>
+
+<p>
+  <strong>Telefono:</strong>
+  <%= @repartidor.telefono %>
+</p>
+
+<p>
+  <strong>Zona:</strong>
+  <%= @repartidor.zona %>
+</p>
+
+<p>
+  <strong>En servicio:</strong>
+  <%= @repartidor.en_servicio %>
+</p>
+
+<%= link_to 'Edit', edit_repartidor_path(@repartidor) %> |
+<%= link_to 'Back', repartidors_path %>

@@ -1,0 +1,2 @@
+module PlatoCategoriaHelper
+end

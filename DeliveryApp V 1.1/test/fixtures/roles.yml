@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre_rol: MyString
+  descripcion_rol: MyString
+  estado_rol: 
+
+two:
+  nombre_rol: MyString
+  descripcion_rol: MyString
+  estado_rol: 

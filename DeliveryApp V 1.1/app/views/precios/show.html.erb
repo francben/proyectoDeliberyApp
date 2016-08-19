@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Plato:</strong>
+  <%= @precio.plato_id %>
+</p>
+
+<p>
+  <strong>Categoria:</strong>
+  <%= @precio.categoria_id %>
+</p>
+
+<p>
+  <strong>Precio:</strong>
+  <%= @precio.precio %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @precio.estado %>
+</p>
+
+<%= link_to 'Edit', edit_precio_path(@precio) %> |
+<%= link_to 'Back', precios_path %>

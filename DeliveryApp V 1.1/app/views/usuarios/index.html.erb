@@ -1,0 +1,62 @@
+
+<% if current_usuario.rol_id == 1 %>
+<div class="box-header">
+    <h1><i class="en-users"></i>
+        Usuario <%= link_to glyph(:plus_sign)+' Nuevo Usuario', new_usuario_path, class: 'btn btn-primary btn-sm pull-right' %>
+    </h1>
+</div>
+<div class="box-body pad table-responsive">
+<div class=" table-responsive">
+<table class="table table-striped table-hover table-condensed">
+  <thead>
+    <tr>
+      <th>Nick</th>
+      <th>Email</th>
+      <th>Documento</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Rol</th>
+      <th class="text-center">Estado</th>
+      <th colspan="3">Opciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @usuarios.each do |usuario| %>
+      <tr>
+        <td><%= usuario.nick_usuario %></td>
+        <td><%= usuario.email %></td>
+        <td><%= usuario.documento_usuario %></td>
+        <td><%= usuario.nombre_usuario %></td>
+        <td><%= usuario.apellido_usuario %></td>
+        <% if usuario.rol.nombre_rol == "Administrador" %>
+          <td><span class="label label-success"><%= usuario.rol.nombre_rol %></span></td>
+        <% else %>
+          <td><span class="label label-primary"><%= usuario.rol.nombre_rol %></span></td>
+        <% end %>
+        <% if usuario.estado_usuario == 1 %>
+          <td class="text-center"><span class="text-success"><i class="fa fa-check"></i></span></td>
+        <% end %>
+        <% if usuario.estado_usuario == 0 %>
+          <td class="text-center"><span class="text-danger"><i class="glyphicon glyphicon-remove"></i></span></td>
+        <% end %>
+        <td class="col-lg-1">
+          <div class="btn-group btn-group-justified">
+            <%= link_to glyph(:eye_open)+'', usuario, class: 'btn btn-primary btn-xs' %>
+            <%= link_to glyph(:pencil)+'', edit_usuario_path(usuario), class: 'btn btn-warning btn-xs'  %>
+            <%= link_to glyph(:remove)+'', usuario, method: :delete, data: { confirm: 'Estas seguro que deseas eliminar?' }, class: 'btn btn-danger btn-xs'  %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+ <% else %>
+ 
+ <div class="callout callout-danger">
+  <h4>Alerta!</h4>
+  <p>No tienes autorizacion para acceder a esta pagina.</p>
+</div>
+</div>
+</div>
+ <% end %>

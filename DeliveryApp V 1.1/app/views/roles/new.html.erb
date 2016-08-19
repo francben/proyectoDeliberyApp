@@ -1,0 +1,13 @@
+<div class="box box-primary">
+<div class='box-header with-border'>
+    <div class="user-block">
+        <img class="img-circle tip" src="http://localhost:3000/img/delivery.jpg" width="50" title="" alt="">
+        <span class="username text-light-blue text-blue"><%=@titulo %>  </span>
+        <span class='description'><%=@clase %> </span>
+    </div>
+    <div class='box-tools btn-group'>
+        <%=link_to glyph(:th_list)+' Ir a Listado', roles_path, class:'btn btn-link btn-sm tip', title: 'Ir a Listado' %>
+    </div>
+</div>
+<%= render 'form' %>
+</div>

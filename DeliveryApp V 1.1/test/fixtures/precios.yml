@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  plato_id: 1
+  categoria_id: 1
+  precio: 1
+  estado: false
+
+two:
+  plato_id: 1
+  categoria_id: 1
+  precio: 1
+  estado: false

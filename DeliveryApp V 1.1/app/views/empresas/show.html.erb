@@ -1,0 +1,81 @@
+<div class="box-header">
+    <h1><i class="glyphicon glyphicon-list"></i>
+        Ver datos de la Empresa <%= link_to glyph(:plus_sign)+' Nueva Empresa', new_empresa_path, class: 'btn btn-primary btn-sm pull-right' %>
+    </h1>
+</div>
+<div class="box-body pad table-responsive">
+<table class="table table-striped table-hover ">
+  <tbody>
+    <tr>
+      <td>
+  <strong>Razonsocial:</strong>
+  <%= @empresa.razonsocial %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+  <strong>Nombrecorto:</strong>
+  <%= @empresa.nombrecorto %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+  <strong>Ruc:</strong>
+  <%= @empresa.ruc %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+  <strong>Pais:</strong>
+  <%= @empresa.pais %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+  <strong>Ciudad:</strong>
+  <%= @empresa.ciudad %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+  <strong>Departamento:</strong>
+  <%= @empresa.departamento %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+  <strong>Direccion:</strong>
+  <%= @empresa.direccion %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+  <strong>Email:</strong>
+  <%= @empresa.email %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+  <strong>Telefono:</strong>
+  <%= @empresa.telefono %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+  <strong>Web:</strong>
+  <%= @empresa.web %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+  <strong>Estado:</strong>
+  <%= @empresa.estado %>
+      </td>
+    </tr>
+    </tbody>
+   </table>
+
+
+<%= link_to glyph(:arrow_left) + ' Volver', empresas_path %> | 
+<%= link_to glyph(:pencil) + ' Editar', edit_empresa_path(@empresa) %>
+</div>

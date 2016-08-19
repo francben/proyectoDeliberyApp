@@ -1,0 +1,15 @@
+== README
+
+Se creo la funcionalidad Roles...
+Se creo la funcionalidad de usuario...
+Se instalo Devise para la gestion de login de usuarios...
+Se aplico el Framework Css AdminLTE...
+
+Para el primer uso ejecutar
+rake db:create  //para crear la base de datos
+rake db:migrate //para crear las migraciones
+rake db:seed //para crear el usuario Administrador y su rol
+
+Iniciar sesion con:
+
+delivery@gmail.com	pass: 111111

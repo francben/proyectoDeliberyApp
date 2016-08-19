@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Repartidors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Telefono</th>
+      <th>Zona</th>
+      <th>En servicio</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @repartidors.each do |repartidor| %>
+      <tr>
+        <td><%= repartidor.nombre %></td>
+        <td><%= repartidor.apellido %></td>
+        <td><%= repartidor.telefono %></td>
+        <td><%= repartidor.zona %></td>
+        <td><%= repartidor.en_servicio %></td>
+        <td><%= link_to 'Show', repartidor %></td>
+        <td><%= link_to 'Edit', edit_repartidor_path(repartidor) %></td>
+        <td><%= link_to 'Destroy', repartidor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Repartidor', new_repartidor_path %>

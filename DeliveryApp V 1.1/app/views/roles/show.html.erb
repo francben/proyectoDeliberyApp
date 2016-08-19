@@ -1,0 +1,42 @@
+<div class="box box-primary">
+<div class='box-header with-border'>
+    <div class="user-block">
+        <img class="img-circle tip" src="http://localhost:3000/img/delivery.jpg" width="50" title="" alt="">
+        <span class="username text-light-blue text-blue"><%=@titulo %>  </span>
+        <span class='description'><%=@clase %> </span>
+    </div>
+    <div class='box-tools btn-group'>
+        <%=link_to glyph(:th_list)+' Ir a Listado', roles_path, class:'btn btn-link btn-sm tip', title: 'Ir a Listado' %>
+        <%=link_to glyph(:plus_sign)+' Nuevo Rol', new_rol_path, class:'btn btn-link btn-sm tip', title: 'Nuevo Rol' %>
+    </div>
+</div>
+<div class='box-body'>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class=" table-responsive">
+                <table class="table table-striped table-hover table-condensed" cellspacing="0" width="100%" id="tablaMenu">
+                    <tbody>
+                        <tr>
+                            <th>Nombre</th>
+                            <td><%= @rol.nombre_rol %></td>
+                        </tr>
+                        <tr>
+                            <th>Descripcion</th>
+                            <td><%= @rol.descripcion_rol %></td>
+                        </tr>
+                        <tr>
+                            <th>Estado</th>
+                            <% if @rol.estado_rol==1 %>
+                              <td><span class="text-success"><i class="fa fa-check"></i></span></td>
+                            <% end %>
+                            <% if @rol.estado_rol==0 %>
+                              <td><span class="text-danger"><i class="glyphicon glyphicon-remove"></i></span></td>
+                            <% end %>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

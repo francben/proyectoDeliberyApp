@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rol_id: 1
+  nick_usuario: MyString
+  nombre_usuario: MyString
+  apellido_usuario: MyString
+  documento_usuario: MyString
+  estado_usuario: 
+
+two:
+  rol_id: 1
+  nick_usuario: MyString
+  nombre_usuario: MyString
+  apellido_usuario: MyString
+  documento_usuario: MyString
+  estado_usuario: 

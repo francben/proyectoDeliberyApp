@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  empresa_id: 1
+  orden_numero: 1
+  cliente_id: 1
+  fecha_pedido: MyString
+  direccion: MyString
+  monto_total: 1
+  tiempo_estimado_envio: 2016-06-21 12:48:21
+  recepcionado: false
+  enviado: false
+  entregado: false
+  usuario_id: 1
+  repartidor_id: 1
+  estado: false
+
+two:
+  empresa_id: 1
+  orden_numero: 1
+  cliente_id: 1
+  fecha_pedido: MyString
+  direccion: MyString
+  monto_total: 1
+  tiempo_estimado_envio: 2016-06-21 12:48:21
+  recepcionado: false
+  enviado: false
+  entregado: false
+  usuario_id: 1
+  repartidor_id: 1
+  estado: false

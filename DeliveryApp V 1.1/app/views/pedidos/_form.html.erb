@@ -1,0 +1,132 @@
+<%= form_for(@pedido, html: {class: 'form-horizontal'}) do |f| %>
+<div class="box-body">
+    <% if @pedido.errors.any? %>
+    <div id="error_explanation" class="callout callout-danger">
+        <h4>
+        <%= pluralize(@pedido.errors.count, "error") %> impidieron que este pedido fuera guardado:</h2>
+        <% @pedido.errors.full_messages.each do |message| %>
+        <small class=""><i class="glyphicon glyphicon-remove"></i> <%= message %>.</small><br />
+        <% end %>
+    </div>
+    <% end %>
+    <div class="col-lg-3">
+        <div class="form-group col-lg-12">
+            <label for="pedido_empresa_id">Restaurante</label>
+            <%= f.collection_select(:empresa_id, Empresa.all, :id, :razonsocial, {prompt: true}, {:class=>'form-control input-sm select2', style: "width: 100%;"}) %>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="form-group col-lg-12">
+            <%= f.label :orden_numero %>
+            <%= f.number_field :orden_numero, autofocus: true, placeholder: 'Nº Orden', class: 'form-control input-sm', value: @siguienteorden, readonly: 'true' %>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="form-group col-lg-12">
+            <%= f.label :cliente_id %>
+            <%= f.collection_select(:cliente_id, Cliente.all, :id, :nombre, {prompt: true}, {:class=>'form-control input-sm select2', style: "width: 100%;"}) %>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="form-group col-lg-12">
+            <%= f.label :direccion %>
+            <%= f.text_field :direccion, autofocus: true, placeholder: 'Direccion', class: 'form-control input-sm' %>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="form-group col-lg-12">
+            <%= f.label :monto_total %>
+            <%= f.number_field :monto_total, autofocus: true, placeholder: 'Monto Total', class: 'form-control input-sm' %>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="form-group col-lg-12">
+            <%= f.label :usuario_id %>
+            <%= f.collection_select(:usuario_id, Usuario.all, :id, :nombre_usuario, {prompt: true}, {:class=>'form-control input-sm select2', style: "width: 100%;"}) %>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="form-group col-lg-12">
+            <%= f.label :repartidor_id %>
+            <%= f.collection_select(:repartidor_id, Repartidor.all, :id, :nombre, {prompt: true}, {:class=>'form-control input-sm select2', style: "width: 100%;"}) %>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="form-group col-lg-12">
+            <%= f.label :fecha_pedido %>
+            <%= f.text_field :fecha_pedido, autofocus: true, placeholder: 'Fecha de pedido', class: 'form-control datetimepicker input-sm', value: @fecha, readonly: 'true' %>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="form-group col-lg-12">
+            <%= f.label :tiempo_estimado_envio %>
+            <%= f.text_field :tiempo_estimado_envio, placeholder: 'Tiempo estimado de envio', class: 'form-control input-sm', value: '00:40:00' %>
+        </div>
+    </div>
+    <div class="col-lg-2">
+        <div class="form-group col-lg-12">
+            <%= f.label :recepcionado %>
+            <br/ >
+            <%= f.check_box :recepcionado, class: 'col-lg-12', value: 'true', readonly: "true" %>
+        </div>
+    </div>
+    <div class="col-lg-2">
+        <div class="form-group col-lg-12">
+            <%= f.label :enviado %>
+            <br/ >
+            <%= f.check_box :enviado, class: 'col-lg-12', value: 'false', readonly: "true"  %>
+        </div>
+    </div>
+    <div class="col-lg-2">
+        <div class="form-group col-lg-12">
+            <%= f.label :entregado%>
+            <br/ >
+            <%= f.check_box :entregado, class: 'col-lg-12', value: 'false', readonly: 'true'  %>
+        </div>
+    </div>
+    <div class="col-lg-2">
+        <div class="form-group col-lg-12">
+            <%= f.label :estado%>
+            <br/ >
+            <%= f.check_box :estado, class: 'col-lg-12', value: 'true', readonly: 'true'  %>
+        </div>
+    </div>
+</div>
+<div class="box-footer">
+    <%= f.add_nested_fields_link :detalle_pedidos, glyph(:plus_sign) + '  Agregar', class: 'btn btn-primary btn-sm' %>
+    <%= button_tag(type: 'submit', class: "btn btn-success btn-sm") do %>
+    <span class="fa fa-check"></span> Guardar
+    <% end %>  
+</div>
+<div class="box-body">
+    <%= f.nested_fields_for :detalle_pedidos,  layout: :inline do |ff| %>
+    <%= ff.hidden_field :pedido_id %>
+    <div class="col-lg-3">
+        <div class="form-group col-lg-12">
+            <%= ff.collection_select(:empresa_id, Empresa.all, :id, :razonsocial, {prompt: true}, {:class=>'select2 form-control input-sm select2', style: "width: 100%;"}) %>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="form-group col-lg-12">
+            <%= ff.collection_select(:plato_id, Plato.all, :id, :nombre, {prompt: true}, {:class=>'form-control select2 input-sm select2', style: "width: 100%;"}) %>
+            <% platos_array = Plato.all.map { |plato| [" #{plato.nombre}", plato.id ] } %>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="form-group col-lg-12">
+            <%= ff.number_field :cantidad, autofocus: true, placeholder: 'Cantidad', class: 'form-control input-sm' %>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="form-group col-lg-12">
+            <%= ff.number_field :costo_plato, autofocus: true, placeholder: 'Costo', class: 'form-control input-sm' %>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function(){
+            $(".select2").select2();
+        });
+    </script>
+    <% end %>
+</div>
+<% end %>

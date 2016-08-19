@@ -1,0 +1,60 @@
+
+
+<div class="col-lg-4 col-lg-offset-4 well">
+<fieldset>
+    <legend>Registrar usuario</legend>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, class: 'form-control input-sm', placeholder: 'Email' %>
+  </div>
+  <div class="form-group">
+        <%= f.label :nick_usuario %>
+        <%= f.text_field :nick_usuario, class: 'form-control input-sm', placeholder: 'Nick', require: '' %>
+  </div>
+  <div class="form-group">
+        <%= f.label :nombre_usuario %>
+        <%= f.text_field :nombre_usuario, class: 'form-control input-sm', placeholder: 'Nombre', require: '' %>
+  </div>
+  <div class="form-group">
+        <%= f.label :apellido_usuario %>
+        <%= f.text_field :apellido_usuario,  class: 'form-control input-sm', placeholder: 'Apellido', require: '' %>
+  </div>
+  <div class="form-group">
+        <%= f.label :documento_usuario %>
+        <%= f.text_field :documento_usuario, class: 'form-control input-sm', placeholder: 'Nº Documento', require: '' %>
+  </div>
+  <div class="form-group">
+        <%= f.label :estado_usuario %>
+        <%= f.number_field :estado_usuario, class: 'form-control input-sm', placeholder: 'Estado', require: '' %>
+  </div>
+  <div class="form-group">
+        <%= f.label :rol_id %>
+        <%= f.number_field :rol_id, class: 'form-control input-sm', placeholder: 'Rol', require: '' %>
+  </div>
+
+  <div class="form-group">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> caracteres mínimos)</em>
+        <% end %><br />
+        <%= f.password_field :password, autofocus: true, class: 'form-control input-sm', placeholder: 'Contraseña', require: '' %>
+  </div>
+
+  <div class="form-group">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, autofocus: true, class: 'form-control input-sm', placeholder: 'Confirmar contraseña', require: '' %>
+  </div>
+
+  <div class="form-group">
+    <%= button_tag(type: 'submit', class: "btn btn-primary btn-sm btn-block") do %>
+      <span class="glyphicon glyphicon-plus-sign"></span> Registrar
+    <% end %>
+  </div>
+<%= render "usuarios/shared/links" %>
+  </fieldset>
+<% end %>
+</div>

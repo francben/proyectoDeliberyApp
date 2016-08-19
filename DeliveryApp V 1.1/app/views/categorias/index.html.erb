@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Categorias</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Menu</th>
+      <th>Nombre</th>
+      <th>Estado</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categorias.each do |categoria| %>
+      <tr>
+        <td><%= categoria.menu_id %></td>
+        <td><%= categoria.nombre %></td>
+        <td><%= categoria.estado %></td>
+        <td><%= link_to 'Show', categoria %></td>
+        <td><%= link_to 'Edit', edit_categoria_path(categoria) %></td>
+        <td><%= link_to 'Destroy', categoria, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Categoria', new_categoria_path %>

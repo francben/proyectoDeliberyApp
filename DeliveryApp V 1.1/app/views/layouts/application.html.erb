@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>DeliverYApp</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
+        <%= favicon_link_tag 'http://localhost:3000/img/delivery.jpg', rel: 'apple-touch-icon', type: 'image/jpg' %>
+    </head>
+    <body class="hold-transition sidebar-mini wysihtml5-supported skin-blue">
+        <div class="wrapper">
+            <header class="main-header">
+                <!-- Logo -->
+                <a href="<%= root_path %>" class="logo">
+                <span class="logo-mini"><b>D</b>App</span>
+                <span class="logo-lg"><b>DeliverY</b>App</span>
+                </a>
+                <nav class="navbar navbar-static-top" role="navigation">
+                    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    </a>
+                    <% if usuario_signed_in? %>
+                    <div class="navbar-custom-menu">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown user user-menu">
+                                <a href="<% root_path %>" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="http://localhost:3000/img/delivery.jpg" class="user-image" alt="<%= current_usuario.nombre_usuario %>">
+                                <span class="hidden-xs"><%= current_usuario.nick_usuario %></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <!-- User image -->
+                                    <li class="user-header">
+                                        <img src="http://localhost:3000/img/delivery.jpg" class="img-circle" alt="<%= current_usuario.nombre_usuario %> <%= current_usuario.apellido_usuario %>">
+                                        <p>
+                                            <%= current_usuario.nombre_usuario %> <%= current_usuario.apellido_usuario %> - <%= current_usuario.rol.nombre_rol %>
+                                            <small>Registrado el <%= current_usuario.created_at %></small>
+                                        </p>
+                                    </li>
+                                    <!-- Menu Footer-->
+                                    <li class="user-footer">
+                                        <div class="pull-left">
+                                            <%= link_to glyph(:edit) + " Editar Perfil", "http://localhost:3000/usuarios/#{current_usuario.id}/edit", class: 'btn btn-default btn-flat' %>
+                                        </div>
+                                        <div class="pull-right">
+                                            <%= link_to  glyph(:log_out) + " Salir", destroy_usuario_session_path, method: :delete, :class => 'btn btn-danger btn-flat',method: :delete, data: { confirm: 'Estas seguro?' }  %>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <% end %>
+                </nav>
+            </header>
+            <aside class="main-sidebar">
+                <section class="sidebar">
+                    <div class="user-panel">
+                        <div class="pull-left image">
+                            <img src="http://localhost:3000/img/delivery.jpg" class="img-circle" alt="User Image">
+                        </div>
+                        <div class="pull-left info">
+                            <p><%= current_usuario.nombre_usuario %> <%= current_usuario.apellido_usuario %></p>
+                            <a href="#"><i class="fa fa-circle text-success"></i> <%= current_usuario.rol.nombre_rol%></a>
+                        </div>
+                    </div>
+                    <ul class="sidebar-menu">
+                        <li class="header">MENÚ DE NAVEGACIÓN</li>
+                        <% if current_usuario.rol_id == 1 %>
+                        <li class="treeview">
+                            <a href="#">
+                            <i class="fa fa-user"></i> <span>Admin</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu" style="display: none;">
+                                <li class="treeview">
+                                    <a href="">
+                                    <i class="en-users"></i> <span>Usuario</span> <i class="fa fa-angle-left pull-right"></i>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><%= link_to  glyph(:list) + " Lista", "/usuarios" %></li>
+                                        <li><%= link_to  glyph(:plus) + " Nuevo", new_usuario_path %></li>
+                                    </ul>
+                                </li>
+                                <li class="treeview">
+                                    <a href="">
+                                    <i class="en-cone"></i> <span>Rol</span> <i class="fa fa-angle-left pull-right"></i>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><%= link_to  glyph(:list) + " Lista", "/roles" %></li>
+                                        <li><%= link_to  glyph(:plus) + " Nuevo", new_rol_path %></li>
+                                    </ul>
+                                </li>
+                                <li class="treeview">
+                                    <a href="">
+                                    <i class="en-cone"></i> <span>Empresa</span> <i class="fa fa-angle-left pull-right"></i>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><%= link_to  glyph(:list) + " Lista", "/empresas" %></li>
+                                        <li><%= link_to  glyph(:plus) + " Nuevo", new_empresa_path %></li>
+                                    </ul>
+                                </li>
+                                <li class="treeview">
+                                    <a href="">
+                                    <i class="fa fa-user-plus"></i> <span>Cliente</span> <i class="fa fa-angle-left pull-right"></i>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><%= link_to  glyph(:list) + " Lista", "/clientes" %></li>
+                                        <li><%= link_to  glyph(:plus) + " Nuevo", new_cliente_path %></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <% end %>
+                        <li class="treeview">
+                            <a href="">
+                            <i class="fa fa-list-alt"></i> <span>Pedidos</span> <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><%= link_to  glyph(:list) + " Lista", "/pedidos" %></li>
+                                <li><%= link_to  glyph(:plus) + " Nuevo", new_pedido_path %></li>
+                                <li class="treeview">
+                                    <a href="">
+                                    <i class="en-cone"></i> <span>Cliente</span> <i class="fa fa-angle-left pull-right"></i>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><%= link_to  glyph(:list) + " Lista", "/clientes" %></li>
+                                        <li><%= link_to  glyph(:plus) + " Nuevo", new_cliente_path %></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                            <i class="fa fa-wrench"></i> <span>Mantenimiento</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu" style="display: none;">
+                                <li class="treeview">
+                                    <a href="">
+                                    <i class="en-users"></i> <span>Ingredientes</span> <i class="fa fa-angle-left pull-right"></i>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><%= link_to  glyph(:list) + " Lista", "/ingredientes" %></li>
+                                        <li><%= link_to  glyph(:plus) + " Nuevo", new_ingrediente_path %></li>
+                                    </ul>
+                                </li>
+                                <li class="treeview">
+                                    <a href="">
+                                    <i class="en-cone"></i> <span>Menus</span> <i class="fa fa-angle-left pull-right"></i>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><%= link_to  glyph(:list) + " Lista", "/menus" %></li>
+                                        <li><%= link_to  glyph(:plus) + " Nuevo", new_menu_path %></li>
+                                    </ul>
+                                </li>
+                                <li class="treeview">
+                                    <a href="">
+                                    <i class="en-cone"></i> <span>Platos</span> <i class="fa fa-angle-left pull-right"></i>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><%= link_to  glyph(:list) + " Lista", "/platos" %></li>
+                                        <li><%= link_to  glyph(:plus) + " Nuevo", new_plato_path %></li>
+                                    </ul>
+                                </li>
+                                <li class="treeview">
+                                    <a href="">
+                                    <i class="en-cone"></i> <span>Repartidores</span> <i class="fa fa-angle-left pull-right"></i>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><%= link_to  glyph(:list) + " Lista", "/repartidors" %></li>
+                                        <li><%= link_to  glyph(:plus) + " Nuevo", new_repartidor_path %></li>
+                                    </ul>
+                                </li>
+                                <li class="treeview">
+                                    <a href="">
+                                    <i class="en-cone"></i> <span>Categorias</span> <i class="fa fa-angle-left pull-right"></i>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><%= link_to  glyph(:list) + " Lista", "/categoria" %></li>
+                                        <li><%= link_to  glyph(:plus) + " Nuevo", new_categoria_path %></li>
+                                    </ul>
+                                </li>
+                                <li class="treeview">
+                                    <a href="">
+                                    <i class="en-cone"></i> <span>Precios</span> <i class="fa fa-angle-left pull-right"></i>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><%= link_to  glyph(:list) + " Lista", "/precios" %></li>
+                                        <li><%= link_to  glyph(:plus) + " Nuevo", new_precio_path %></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+            </aside>
+            <div class="content-wrapper">
+                <section class="content">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <% if notice %>
+                            <%= bootstrap_flash %> 
+                            <% end %>
+                            <% if alert %>
+                            <%= bootstrap_flash %> 
+                            <% end %>
+                        </div>
+                        <div class="col-lg-12">
+                            <%=yield%>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <footer class="main-footer">
+                <div class="pull-right hidden-xs">
+                    <b>Version</b> 1.0
+                </div>
+                <strong>Copyright &copy; 2016 <a href="">DeliverYApp</a>.</strong> Todos los derechos reservados.
+            </footer>
+            <div class="control-sidebar-bg"></div>
+        </div>
+        <!-- ./wrapper -->
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var oTable = $('#tablaMenu,#tablaMenu1,#tablaMenu2').DataTable({
+                "bProcessing": true,
+                "sPaginationType": "full_numbers",
+                "paging": true,
+                "iDisplayLength": 8,
+                "bPaginate": true,
+                "bSort": true,
+                "oLanguage": {
+                    "oPaginate": {
+                        "sPrevious": "←",
+                        "sNext": "→",
+                        "sLast": "»",
+                        "sFirst": "«"
+                    },
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningún dato disponible en esta tabla",
+                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Buscar:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oAria": {
+                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    }
+                }
+            });
+                $('input').iCheck({
+                    checkboxClass: 'icheckbox_minimal-blue',
+                    radioClass: 'icheckbox_minimal-blue',
+                    increaseArea: '20%' // optional
+                });
+                 $(".select2").select2();
+
+
+
+
+
+            $('.datetimepicker').datetimepicker({
+                icons: {
+                    time: "fa fa-clock-o",
+                    date: "fa fa-calendar",
+                    up: "fa fa-arrow-up",
+                    down: "fa fa-arrow-down"
+                },
+                format: 'DD/MM/YYYY'
+            });
+
+            $('#pedido_tiempo_estimado_envio').datetimepicker({
+                icons: {
+                    time: "fa fa-clock-o",
+                    date: "fa fa-calendar",
+                    up: "fa fa-arrow-up",
+                    down: "fa fa-arrow-down"
+                },
+                format: 'HH:mm:ss'
+            });
+
+            } );
+            
+        </script>
+    </body>
+</html>

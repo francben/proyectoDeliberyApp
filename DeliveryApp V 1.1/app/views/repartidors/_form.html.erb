@@ -1,0 +1,37 @@
+<%= form_for(@repartidor) do |f| %>
+  <% if @repartidor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@repartidor.errors.count, "error") %> prohibited this repartidor from being saved:</h2>
+
+      <ul>
+      <% @repartidor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :apellido %><br>
+    <%= f.text_field :apellido %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono %><br>
+    <%= f.text_field :telefono %>
+  </div>
+  <div class="field">
+    <%= f.label :zona %><br>
+    <%= f.text_field :zona %>
+  </div>
+  <div class="field">
+    <%= f.label :en_servicio %><br>
+    <%= f.check_box :en_servicio %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

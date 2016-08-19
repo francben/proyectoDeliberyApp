@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="png" href="http://localhost:3000/img/logo.png" />
+        <title>DeliveryApp</title>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
+    </head>
+    <body class="hold-transition login-page" onload="nobackbutton();">
+        <div class="login-box">
+            <div class="login-logo">
+                <a href="<% root_path %>"><b>Deliver</b>Yapp</a>
+            </div>
+            <% if notice %>
+            <%= bootstrap_flash %>
+            <% end %>
+            <% if alert %>
+            <%= bootstrap_flash %>
+            <% end %>
+            <!-- /.login-logo -->
+            <div class="login-box-body">
+                <p class="login-box-msg lead">Iniciar Sesión</p>
+                <hr/>
+                <%=yield%>
+                <%= render "usuarios/shared/links" %>
+            </div>
+            <!-- /.login-box-body -->
+        </div>
+        <!-- /.login-box -->
+        <script>
+            $(function () {
+                $('input').iCheck({
+                    checkboxClass: 'icheckbox_minimal-blue',
+                    radioClass: 'icheckbox_minimal-blue',
+                    increaseArea: '20%' // optional
+                });
+                {
+                  if(history.forward(1)){
+                    location.replace(history.forward(1))
+                  }
+                };
+              function nobackbutton(){
+                window.location.hash="no-back-button";
+                window.location.hash="Again-No-back-button" 
+                window.onhashchange=function(){window.location.hash="no-back-button";}
+              }
+            });
+        </script>
+    </body>
+</html>

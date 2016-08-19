@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @plato.nombre %>
+</p>
+
+<p>
+  <strong>Img:</strong>
+  <%= @plato.img %>
+</p>
+
+<p>
+  <strong>Tiempo preparacion:</strong>
+  <%= @plato.tiempo_preparacion %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @plato.estado %>
+</p>
+
+<%= link_to 'Edit', edit_plato_path(@plato) %> |
+<%= link_to 'Back', platos_path %>
