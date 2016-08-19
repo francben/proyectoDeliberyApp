@@ -1,0 +1,49 @@
+﻿@model  IEnumerable<DeliverYApp.Models.Navegacion>
+
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model)
+{
+    if (item.Accion != null && item.Controlador != null && item.Accion != "" && item.Controlador != "" && item.PadreId == 0)
+    {
+        <li>@Html.ActionLink(item.Nombre, item.Accion, item.Controlador)</li>
+    }
+    else
+    {
+        <li class="has-sub">
+            <a href="javascript:;">
+                <b class="caret pull-right"></b>
+                <i class="fa fa-circle"></i>
+                <span>@Html.DisplayFor(model => item.Nombre) </span>
+            </a>
+            <ul class="sub-menu">
+                @foreach (var subitem in item.Hijo())
+                {
+                    var nodes = subitem.Hijo();
+                    if (nodes.Count() > 0)
+                    {
+                        <li class="has-sub">
+                            <a href="javascript:;">
+                                <b class="caret pull-right"></b>
+                                <i class="fa fa-check"></i>
+                                <span>@Html.DisplayFor(model => subitem.Nombre)</span>
+                            </a>
+                            <ul class="sub-menu">
+                                @foreach (var node in nodes)
+                                {
+                                    <li>@Html.ActionLink(node.Nombre, node.Accion, node.Controlador)</li>
+                                }
+                            </ul>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink(subitem.Nombre, subitem.Accion, subitem.Controlador)</li>
+                    }
+                }
+            </ul>
+        </li>
+    }
+}
